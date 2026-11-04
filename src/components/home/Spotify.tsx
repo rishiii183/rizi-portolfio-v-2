@@ -60,7 +60,7 @@ const Spotify = ({ track }: SpotifyProps) => {
           width={44}
           height={44}
           alt={song.album ?? "Album artwork"}
-          className="size-11 shrink-0 rounded-xl object-cover"
+          className="size-11 shrink-0 rounded-xl object-cover shadow-sm ring-1 ring-white/10"
         />
       ) : (
         <Image
@@ -73,13 +73,25 @@ const Spotify = ({ track }: SpotifyProps) => {
       )}
 
       <div className="min-w-0 flex-1">
-        <p className="truncate text-xs text-neutral-500">
-          {!song
-            ? "Offline"
-            : song.isPlaying
-              ? "Listening on Spotify"
-              : "Last played"}
-        </p>
+        <div className="flex items-center gap-1.5">
+          <p className="truncate text-xs text-neutral-500">
+            {!song
+              ? "Offline"
+              : song.isPlaying
+                ? "Listening on Spotify"
+                : "Last played"}
+          </p>
+          {song?.isPlaying && (
+            <span
+              className="flex h-3 items-end gap-[2px]"
+              aria-label="Playing audio indicator"
+            >
+              <span className="h-full w-[2px] animate-pulse rounded-full bg-[#1DB954]" />
+              <span className="h-2/3 w-[2px] animate-pulse rounded-full bg-[#1DB954] [animation-delay:150ms]" />
+              <span className="h-4/5 w-[2px] animate-pulse rounded-full bg-[#1DB954] [animation-delay:300ms]" />
+            </span>
+          )}
+        </div>
 
         {song?.title ? (
           song.spotifyUrl ? (

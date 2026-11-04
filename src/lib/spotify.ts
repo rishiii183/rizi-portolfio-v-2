@@ -1,5 +1,7 @@
 import "server-only";
 
+import { curatedPlaylist } from "@/config/spotifyPlaylist";
+
 export type SpotifyTrack = {
   isPlaying: boolean;
   title: string | null;
@@ -38,6 +40,23 @@ const EMPTY_TRACK: SpotifyTrack = {
   albumImageUrl: null,
   spotifyUrl: null,
 };
+
+function getCuratedTrack(): SpotifyTrack {
+  if (!curatedPlaylist || curatedPlaylist.length === 0) {
+    return EMPTY_TRACK;
+  }
+
+  // Rotate track naturally every 3.5 minutes (210,000 ms)
+  const ROTATION_INTERVAL_MS = 210 * 1000;
+  const index =
+    Math.floor(Date.now() / ROTATION_INTERVAL_MS) % curatedPlaylist.length;
+  const track = curatedPlaylist[index];
+
+  return {
+    ...track,
+    isPlaying: true,
+  };
+}
 
 async function getAccessToken(): Promise<string | null> {
   const clientId = process.env.SPOTIFY_CLIENT_ID;
@@ -89,55 +108,54 @@ function formatTrack(track: SpotifyApiTrack, isPlaying: boolean): SpotifyTrack {
 }
 
 export async function getSpotifyTrack(): Promise<SpotifyTrack> {
-  const accessToken = await getAccessToken();
-
-  if (!accessToken) {
-    return EMPTY_TRACK;
-  }
-
-  const headers = {
-    Authorization: `Bearer ${accessToken}`,
-  };
-
   try {
-    const currentResponse = await fetch(
-      "https://api.spotify.com/v1/me/player/currently-playing",
-      {
-        headers,
-        cache: "no-store",
+    const accessToken = await getAccessToken();
+
+    if (accessToken) {
+      const headers = {
+        Authorization: `Bearer ${accessToken}`,
+      };
+
+      const currentResponse = await fetch(
+        "https://api.spotify.com/v1/me/player/currently-playing",
+        {
+          headers,
+          cache: "no-store",
+        }
+      );
+
+      if (currentResponse.status === 200) {
+        const data: SpotifyApiResponse = await currentResponse.json();
+
+        if (data.is_playing && data.item) {
+          return formatTrack(data.item, true);
+        }
       }
-    );
 
-    if (currentResponse.status === 200) {
-      const data: SpotifyApiResponse = await currentResponse.json();
+      const recentResponse = await fetch(
+        "https://api.spotify.com/v1/me/player/recently-played?limit=1",
+        {
+          headers,
+          cache: "no-store",
+        }
+      );
 
-      if (data.is_playing && data.item) {
-        return formatTrack(data.item, true);
-      }
-    }
+      if (recentResponse.ok) {
+        const recentData: {
+          items?: { track: SpotifyApiTrack }[];
+        } = await recentResponse.json();
 
-    const recentResponse = await fetch(
-      "https://api.spotify.com/v1/me/player/recently-played?limit=1",
-      {
-        headers,
-        cache: "no-store",
-      }
-    );
+        const lastTrack = recentData.items?.[0]?.track;
 
-    if (recentResponse.ok) {
-      const recentData: {
-        items?: { track: SpotifyApiTrack }[];
-      } = await recentResponse.json();
-
-      const lastTrack = recentData.items?.[0]?.track;
-
-      if (lastTrack) {
-        return formatTrack(lastTrack, false);
+        if (lastTrack) {
+          return formatTrack(lastTrack, false);
+        }
       }
     }
   } catch {
-    // Fail gracefully to empty track
+    // If Spotify API call fails or encounters network issue, fallback smoothly to curated playlist
   }
 
-  return EMPTY_TRACK;
+  // Graceful fallback to the rotating curated playlist from your Spotify playlist
+  return getCuratedTrack();
 }
