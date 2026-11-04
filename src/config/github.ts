@@ -26,17 +26,17 @@ export const githubConfig = {
   theme: {
     dark: [
       "rgb(22, 27, 34)", // No contributions
-      "rgb(12, 45, 80)", // Dark blue
-      "rgb(0, 91, 172)", // Medium blue
-      "rgb(30, 144, 255)", // Bright blue
-      "rgb(87, 185, 255)", // Very bright blue
+      "rgb(74, 32, 16)", // Deep amber
+      "rgb(180, 83, 9)", // Rich orange
+      "rgb(249, 115, 22)", // Vibrant orange
+      "rgb(255, 180, 75)", // Radiant glowing orange
     ],
     light: [
       "rgb(235, 237, 240)", // Light gray
-      "rgb(166, 210, 255)", // Light blue
-      "rgb(92, 173, 255)", // Medium blue
-      "rgb(48, 129, 226)", // Dark blue
-      "rgb(31, 81, 163)", // Very dark blue
+      "rgb(254, 215, 170)", // Light peach orange
+      "rgb(251, 146, 60)", // Medium orange
+      "rgb(234, 88, 12)", // Bright dark orange
+      "rgb(154, 52, 18)", // Deep burnt orange
     ],
   },
 
