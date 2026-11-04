@@ -12,6 +12,7 @@ export async function GET() {
     client_id: SPOTIFY_CLIENT_ID,
     response_type: "code",
     redirect_uri: SPOTIFY_REDIRECT_URI,
+    show_dialog: "true",
     scope: [
       "user-read-currently-playing",
       "user-read-playback-state",
