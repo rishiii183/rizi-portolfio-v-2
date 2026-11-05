@@ -77,16 +77,10 @@ export const pageMetaData: Record<string, PageMeta> = {
       "Have a project, security audit, or engineering role in mind? Reach out to Rishi Ghosh.",
     ogImage: "/meta/contact.png",
   },
-  "/gears": {
-    title: "Gears - Hardware & Tech Setup",
+  "/education": {
+    title: "Education - Academic Journey & Background",
     description:
-      "A curated collection of devices, workstations, and hardware tools I use daily.",
-    ogImage: "/meta/gears.png",
-  },
-  "/setup": {
-    title: "Setup - IDE, Tools & Developer Environment",
-    description:
-      "A complete walkthrough of my Cursor, VS Code, terminal, and development workflow.",
-    ogImage: "/meta/setup.png",
+      "Explore Rishi Ghosh's academic background, computer science degree at Netaji Subhash Engineering College, and educational journey.",
+    ogImage: "/meta/resume.png",
   },
 };

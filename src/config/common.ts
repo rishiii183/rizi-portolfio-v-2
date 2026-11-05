@@ -19,25 +19,14 @@ export const navSocialLinks = [
   { id: 2, name: "X", icon: X, value: "https://x.com/wasRizzii" },
 ];
 
-export const setupConfig = [
-  {
-    title: "Gears",
-    href: "/gears",
-    description: "Tools, devices, and software I use to get work done.",
-  },
-  {
-    title: "Setup",
-    href: "/setup",
-    description: "VS Code / Cursor configuration and extensions guide.",
-  },
-];
+export const setupConfig = [];
+
 
 export const footerLinks = [
   { name: "Home", href: "/" },
   { name: "Projects", href: "/projects" },
   { name: "Blog", href: "/blog" },
+  { name: "Education", href: "/education" },
   { name: "Resume", href: "/resume" },
   { name: "Contact", href: "/contact" },
-  { name: "Gears", href: "/gears" },
-  { name: "Setup", href: "/setup" },
 ];

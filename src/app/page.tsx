@@ -4,10 +4,10 @@ import { Container } from "@/components/common/Container";
 import { Reveal } from "@/components/common/Reveal";
 import { Blog } from "@/components/home/Blog";
 import { Experience } from "@/components/home/Experience";
+import { Education } from "@/components/home/Education";
 import { Github } from "@/components/home/Github";
 import { Hero } from "@/components/home/Hero";
 import { Projects } from "@/components/home/Projects";
-import { Setup } from "@/components/home/Setup";
 import { SkillsCarousel } from "@/components/home/SkillsCarousel";
 import { Spotify } from "@/components/home/Spotify";
 import { Testimonial } from "@/components/home/Testimonial";
@@ -33,6 +33,8 @@ const Page = () => {
         <Experience />
       </Reveal>
 
+      <Education />
+
       <Suspense fallback={<div>Loading projects...</div>}>
         <Projects />
       </Suspense>
@@ -43,7 +45,6 @@ const Page = () => {
 
       <Testimonial />
 
-      <Setup />
     </Container>
   );
 };
