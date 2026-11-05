@@ -60,15 +60,41 @@ export default function ResumePage() {
       </Reveal>
 
       <Reveal delay={0.1}>
-        <div className="border-border bg-muted/20 relative my-6 overflow-hidden rounded-2xl border shadow-lg">
-          <Image
-            src="/resume-preview.png"
-            alt="Rishi Ghosh Resume Preview"
-            width={1200}
-            height={1600}
-            className="w-full object-contain"
-            priority
-          />
+        <div className="my-6 flex flex-col gap-8">
+          {/* Page 1 */}
+          <div className="space-y-2">
+            <div className="flex items-center justify-between text-xs font-medium text-neutral-500">
+              <span>Page 1 of 2</span>
+              <span>Experience &amp; Open Source Projects</span>
+            </div>
+            <div className="border-border bg-muted/20 relative overflow-hidden rounded-2xl border shadow-lg">
+              <Image
+                src="/resume-preview-1.png"
+                alt="Rishi Ghosh Resume - Page 1"
+                width={1530}
+                height={1980}
+                className="w-full object-contain"
+                priority
+              />
+            </div>
+          </div>
+
+          {/* Page 2 */}
+          <div className="space-y-2">
+            <div className="flex items-center justify-between text-xs font-medium text-neutral-500">
+              <span>Page 2 of 2</span>
+              <span>Technical Skills &amp; Education</span>
+            </div>
+            <div className="border-border bg-muted/20 relative overflow-hidden rounded-2xl border shadow-lg">
+              <Image
+                src="/resume-preview-2.png"
+                alt="Rishi Ghosh Resume - Page 2"
+                width={1530}
+                height={1980}
+                className="w-full object-contain"
+              />
+            </div>
+          </div>
         </div>
       </Reveal>
     </Container>

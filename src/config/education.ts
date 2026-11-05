@@ -36,3 +36,4 @@ export const educationData: EducationItem[] = [
     logo: "/education/dav.png",
   },
 ];
+
