@@ -30,7 +30,7 @@ import {
 } from "../ui/card";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
-import { Coffee } from "./Coffee";
+
 
 type ContactFormProps = {
   className?: string;
@@ -254,7 +254,7 @@ export function ContactForm({
               )}
             </Button>
 
-            <Coffee className="shadow-acternity dark:shadow-acternity-white size-9 shrink-0 self-center sm:self-auto" />
+
           </div>
         </form>
       </CardContent>

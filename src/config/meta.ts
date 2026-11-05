@@ -89,16 +89,4 @@ export const pageMetaData: Record<string, PageMeta> = {
       "A complete walkthrough of my Cursor, VS Code, terminal, and development workflow.",
     ogImage: "/meta/setup.png",
   },
-  "/books": {
-    title: "Books - Reading List & Recommendations",
-    description:
-      "Books on software architecture, psychology, startups, and philosophy that influenced my work.",
-    ogImage: "/meta/books.png",
-  },
-  "/movies": {
-    title: "Movies & Cinema - Stories That Inspire",
-    description:
-      "Favorite films, sci-fi works, and cinema that spark creativity and focus.",
-    ogImage: "/meta/movies.png",
-  },
 };

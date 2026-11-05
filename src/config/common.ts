@@ -32,19 +32,6 @@ export const setupConfig = [
   },
 ];
 
-export const personalConfig = [
-  {
-    title: "Books",
-    href: "/books",
-    description: "Books that shaped my mindset and challenged my perspective.",
-  },
-  {
-    title: "Movies",
-    href: "/movies",
-    description: "Movies and shows that have inspired and entertained me.",
-  },
-];
-
 export const footerLinks = [
   { name: "Home", href: "/" },
   { name: "Projects", href: "/projects" },
@@ -53,6 +40,4 @@ export const footerLinks = [
   { name: "Contact", href: "/contact" },
   { name: "Gears", href: "/gears" },
   { name: "Setup", href: "/setup" },
-  { name: "Books", href: "/books" },
-  { name: "Movies", href: "/movies" },
 ];

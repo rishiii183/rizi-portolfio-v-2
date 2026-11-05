@@ -6,7 +6,6 @@ import { footerLinks } from "@/config/common";
 import { CurrentYear } from "@/config/CurrentYear";
 import { heroConfig } from "@/config/hero";
 
-import { Coffee } from "./Coffee";
 import { Container } from "./Container";
 
 const Footer = () => {
@@ -62,7 +61,7 @@ const Footer = () => {
               Elsewhere
             </p>
 
-            <div className="grid grid-cols-5 items-center gap-4">
+            <div className="flex items-center gap-4">
               {socials.map(({ id, name, icon: Icon, value }) => (
                 <a
                   key={id}
@@ -80,7 +79,6 @@ const Footer = () => {
                   <Icon className="size-6" />
                 </a>
               ))}
-              <Coffee className="size-6" />
             </div>
           </div>
         </div>

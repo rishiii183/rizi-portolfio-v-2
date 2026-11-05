@@ -1,7 +1,7 @@
 export default function sitemap() {
   const baseUrl = "https://monxdev.vercel.app";
 
-  const routes = ["", "/projects", "/blog", "/about", "/contact", "/gears", "setup", "/designs", "/books", "/movies"];
+  const routes = ["", "/projects", "/blog", "/contact", "/gears", "/setup", "/designs", "/resume"];
 
   return routes.map((route) => ({
     url: `${baseUrl}${route}`,
