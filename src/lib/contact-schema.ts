@@ -5,7 +5,8 @@ export const contactFormSchema = z.object({
     .string()
     .trim()
     .min(2, "Name must be at least 2 characters")
-    .max(100, "Name is too long"),
+    .max(100, "Name is too long")
+    .transform((val) => val.replace(/[\r\n]+/g, " ")),
 
   email: z
     .string()
@@ -28,6 +29,9 @@ export const contactFormSchema = z.object({
     .trim()
     .min(10, "Message must be at least 10 characters")
     .max(1000, "Message must be under 1000 characters"),
+
+  // Hidden honeypot field for bot trapping
+  website: z.string().max(100).optional(),
 });
 
 export type ContactFormValues = z.infer<typeof contactFormSchema>;

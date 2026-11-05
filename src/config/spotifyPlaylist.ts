@@ -51,7 +51,7 @@ export const curatedPlaylist: Omit<SpotifyTrack, "isPlaying">[] = [
     "spotifyUrl": "https://open.spotify.com/track/0vjpPvCtO9aUjLGSQAfyiR"
   },
   {
-    "title": "नalla Freestyle",
+    "title": "Nalla Freestyle",
     "artist": "Seedhe Maut, DJ Sa",
     "album": "Volume badha de bawa ",
     "albumImageUrl": "https://i.scdn.co/image/ab67616d00001e025a821ae1c526cdf7a335858a",

@@ -1,5 +1,8 @@
 import { NextResponse } from "next/server";
 
+// Only permit valid URL slug paths: starts with '/', alphanumeric, dashes, underscores, and forward slashes
+const SAFE_PATH_REGEX = /^\/[a-zA-Z0-9_\-\/]*$/;
+
 export async function GET(request: Request) {
   const token = process.env.VERCEL_TOKEN_ID;
   const projectId = process.env.VERCEL_PROJECT_ID;
@@ -11,6 +14,11 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const path = searchParams.get("path");
 
+  // Validate path query parameter to prevent parameter/filter injection
+  if (path && (path.length > 128 || !SAFE_PATH_REGEX.test(path))) {
+    return NextResponse.json({ pageviews: 0 });
+  }
+
   const url = new URL(
     "https://api.vercel.com/v1/query/web-analytics/visits/count"
   );
@@ -18,6 +26,7 @@ export async function GET(request: Request) {
   url.searchParams.set("projectId", projectId);
 
   if (path) {
+    // Parameterized safely without character injection
     url.searchParams.set(
       "filter",
       `requestPath eq '${path.replace(/'/g, "''")}'`
