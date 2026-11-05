@@ -44,7 +44,7 @@ export const heroConfig = {
       id: 5,
       name: "Instagram",
       icon: Instagram,
-      value: "https://www.instagram.com/rizziii_154/",
+      value: "https://www.instagram.com/thtsrizi/",
     },
     {
       id: 6,

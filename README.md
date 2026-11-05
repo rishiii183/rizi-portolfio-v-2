@@ -134,6 +134,7 @@ Open [http://localhost:3000](http://localhost:3000) (or `http://localhost:3001`)
 - **Website:** [rizzii.me](https://rizzii.me)
 - **GitHub:** [@rishiii183](https://github.com/rishiii183)
 - **X / Twitter:** [@wasRizzii](https://x.com/wasRizzii)
+- **Instagram:** [@thtsrizi](https://www.instagram.com/thtsrizi/)
 - **LinkedIn:** [rishighoshofficial](https://www.linkedin.com/in/rishighoshofficial/)
 - **Email:** [coderrishi183@gmail.com](mailto:coderrishi183@gmail.com)
 
